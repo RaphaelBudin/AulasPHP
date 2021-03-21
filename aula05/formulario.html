@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1 id="titulo"> Cadastro de Devs </h1>
+    <p id="subtitulo"> Cadastre suas informações </p>
+
+    <form action="formulariophp.php" method="POST">
+        <!-- Agruda os campos referentes a informações pessoais, área de atuação e senioridade-->
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="primeiro_nome"> <strong> Nome </strong></label>
+                <input type="text" name="primeiro_nome" id="primeiro_nome" required>
+            </div>
+
+            <div class="campo">
+                 <label for="sobrenome" ><strong> Sobrenome </strong></label>
+                 <input type="text" name="sobrenome" id="sobrenome" required>
+            </div>
+
+            <div class="campo">
+                <label for="email"> <strong> Email </strong> </label>
+                <input type="email" name="email" id="email" required> 
+            </div>
+            <br>
+            <div class="campo">
+                <label> <strong> Sexo </strong> </label> <br>
+                <label for="sexo_m"> <input type="radio" name="sexo"  value="Masculino"> Masculino </label>
+                <label for="sexo_f"> <input type="radio" name="sexo"  value="Feminino"> Feminino </label>                    
+                <label for="sexto_outros"> <input type="radio" name="sexo" value="Outros"> Outros </label>
+            </div>
+            <br>
+            <div class="campo">
+                <label> <strong>De qual lado da aplicação você desenvolve?</strong> </label> <br>
+                <label for="devfront"> <input type="radio" name="ladoaplicacao" id="devfront" value="frontend" checked> Frontend</label>
+                <label for="devback"> <input type="radio" name="ladoaplicacao" id="devback" value="backend"> Backend </label>
+                <label for="fullstack"> <input type="radio" name="ladoaplicacao" id="fullstack" value="fullstack"> Fullstack</label>
+            </div>
+            <br>
+            <div class="campo">
+                <label for="senioridade"> <strong>Senioridade</strong> </label>
+                <select name="senioridade" id="senioridade"> 
+                    <!-- Cria uma opção que será virá selecionada por padrão, porém não pode ser escolhida-->
+                    <option selected disabled value=""> Selecione </option>
+                    <option> Júnior </option>
+                    <option> Pleno </option> 
+                    <option> Senior </option> 
+                </select>
+            </div>            
+        </fieldset>
+        
+        <br>
+
+        <!-- Agrupa quais as tecnologias o candidato trabalha-->
+        <fieldset>
+            <label> <strong>Selecione as tecnologias nas quais trabalha:</strong> </label> <br> <br>
+            <label for="javascript"> <input type="checkbox" name="tecnologias[]" value="javascript"> JavaScript </label> <br>
+            <label for="c"> <input type="checkbox" name="tecnologias[]" value="c"> C  </label> <br>
+            <label for="cpp"> <input type="checkbox" name="tecnologias[]" value="cpp"> C++  </label> <br>
+            <label for="csharp"> <input type="checkbox" name="tecnologias[]" value="csharp"> C#  </label> <br>
+            <label for="java"> <input type="checkbox" name="tecnologias[]" value="java"> Java  </label> <br>
+            <label for="elixir"> <input type="checkbox" name="tecnologias[]" value="elixir"> Elixir  </label> <br>
+            <label for="reasonml"> <input type="checkbox" name="tecnologias[]" value="reasonml"> ReasonML  </label> <br>
+            <label for="python"> <input type="checkbox" name="tecnologias[]" value="python"> Python  </label> <br>
+            <label for="go"> <input type="checkbox" name="tecnologias[]" value="go"> GO  </label> <br>
+            <label for="rust"> <input type="checkbox" name="tecnologias[]" value="rust"> Rust  </label> <br>
+            <label for="htmlcss"> <input type="checkbox" name="tecnologias[]" value="htmlcss"> HTML + CSS  </label> <br>
+            <label for="php"> <input type="checkbox" name="tecnologias[]" value="php"> PHP  </label> <br>
+            <label for="fsharp"> <input type="checkbox" name="tecnologias[]" value="fsharp"> F#  </label> <br>
+            <label for="scala"> <input type="checkbox" name="tecnologias[]" value="scala"> Scala  </label> <br>
+            <label for="haskell"> <input type="checkbox" name="tecnologias[]" value="haskell"> Haskell  </label> <br>
+            <label for="r"> <input type="checkbox" name="tecnologias[]" value="r"> R  </label> <br>
+        </fieldset>
+
+        <br>
+
+        <div> 
+            <label for="experiencia"> <strong> Conte um pouco sobre sua experiência com desenvolvimento:</strong></label> <br> <br>
+            <textarea rows="6" cols="100" name="experiencia" id="experiencia"> </textarea>
+        </div>
+
+        <button type="submit" name="enviar" id="enviar" class="botao"> Enviar </button>
+
+    </form>
+</body>
+</html>
