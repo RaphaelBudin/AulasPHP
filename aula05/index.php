@@ -138,7 +138,7 @@
         //Quando o número do ano for de apenas 2 dígitos ele entende como formato ISO, o que exibirá ao contrário do formato Europeu
         echo "<br>\nData no formato ISO: " . date(MEU_FORMATO_DATA, strtotime($minha_data)) . "<br>\n";
 
-        $minha_data = date(MEU_FORMATO_DATA, strtotime('+3 hous', strtotime($minha_data)));
+        $minha_data = date(MEU_FORMATO_DATA, strtotime('+3 hours', strtotime($minha_data)));
         echo "Adicionada mais 3 horas: " . date(MEU_FORMATO_DATA, strtotime($minha_data)) . "<br>\n";
 
         $minha_data = date(MEU_FORMATO_DATA, strtotime('+3 days', strtotime($minha_data)));
