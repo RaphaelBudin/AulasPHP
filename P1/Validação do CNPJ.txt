@@ -1,0 +1,112 @@
+Validação do CNPJ
+
+
+       O número que compõe o CNPJ é composto por três segmentos de algarismos, sendo o primeiro o número da inscrição propriamente dito, o segundo (após a barra) o número de filiais e o terceiro representados pelos últimos dois valores que são os dígitos verificadores.
+
+ 
+
+Oficialmente o cálculo do número do CNPJ prevê também a verificação do oitavo dígito, mas algumas empresas possuem números que ao serem validados segundo esse critério são considerados inválidos.
+
+ 
+
+Por isso o mais seguro é você fazer a validação dos dígitos verificadores, pois assim nenhum número será inválido e sua rotina está protegida da mesma forma, já que a regra é única e funciona com qualquer CNPJ válido
+
+ 
+
+Validando os dígitos verificadores
+
+ 
+
+Vamos mostrar o modo de cálculo de modo prático, para isso vamos adotar um número de CNPJ hipotético e calcularemos seus dígitos verificadores: 11.222.333/0001-XX.
+ 
+
+Vamos começar alinhando os números que compõe o CNPJ com os algarismos 5,4,3,2,9,8,7,6,5,4,3 e 2 nesta ordem, veja:
+ 
+
+1	1	2	2	2	3	3	3	0	0	0	1
+5	4	3	2	9	8	7	6	5	4	3	2
+
+ 
+
+ 
+
+Feito isso efetuaremos a multiplicação de cada uma das colunas, assim:
+ 
+
+1	1	2	2	2	3	3	3	0	0	0	1
+5	4	3	2	9	8	7	6	5	4	3	2
+5	4	6	4	18	24	21	18	0	0	0	2
+
+    
+
+ 
+
+Com os valores encontrados em cada uma das colunas efetuaremos o somatório, desta forma: 5+4+6+4+18+24+21+18+0+0+0+2 e com o número obtido, nesse caso 102, realizaremos a divisão por 11 (102/11).
+
+
+     Vamos considerar como quociente somente o valor inteiro, o resto da divisão será responsável pelo cálculo do primeiro dígito verificador. Assim sendo, no nosso caso o resto da divisão é o número 3.
+
+
+     Neste momento temos a seguinte regra: Caso o resto da divisão seja menor que 2 o valor do dígito verificador passa a ser 0, caso contrário subtraímos o valor de 11 para obter o dígito, que é o nosso caso, portanto nosso primeiro dígito verificador é (11 - 3) o número 8.
+
+
+    Para seguirmos com a nossa validação tomaremos o CNPJ com o primeiro dígito já calculado para efetuarmos a validação do segundo e último dígito verificador: 11.222.333/0001-8X.
+
+
+    O processo é semelhante a primeira etapa, a única mudança é a seqüência de números que serão alinhados na tabela, como a tabela ficou maior com a presença do dígito já calculado a seqüência agora tem que ter mais um número e ficará assim: 6,5,4,3,2,9,8,7,6,5,4,3 e 2, confira:
+
+ 
+
+1	1	2	2	2	3	3	3	0	0	0	1	8
+6	5	4	3	2	9	8	7	6	5	4	3	2
+6	5	8	6	4	27	24	21	0	0	0	3	16
+ 
+
+ 
+
+ 
+
+ 
+
+Como você pode notar efetuamos também, como na primeira etapa, a multiplicação das colunas e faremos agora o somatório das resultados obtidos: 6+5+8+6+4+27+24+21+0+0+0+3+16. Com o resultado obtido, nesse caso 120, efetuamos a divisão por 11.
+
+ 
+
+Nessa divisão, assim como no cálculo anterior, vamos apenas considerar o valor inteiro do quociente, pois o cálculo do último dígito verificador será feito com o resto da divisão seguindo a seguinte regra: caso o resto da divisão seja menor que 2 (dois), esse valor passa automaticamente a ser zero; caso contrário, que é o nosso caso, subtrai-se o resto de 11 para obter o valor do último dígito verificador, acompanhe: 120/11=10 com resto 10, 11-10 dígito verificador 1 - Nosso CNPJ agora completo 11.222.333/0001-81
+
+
+
+O que é DV módulo 11 e o que é DV módulo 10 ?
+
+DV (Dígito de Verificação), também denominado número-controle, são dígitos incorporados a números para possibilitar a detecção de erros de digitação, no ato. Recurso muito difundido, por exemplo, na numeração de contas de depósitos bancários.
+
+No caso do CNPJ, o DV módulo 11 corresponde ao resto da divisão por 11 do somatório da multiplicação de cada algarismo da base respectivamente por 9, 8, 7, 6, 5, 4, 3, 2, 9, 8, 7, 6 e 5, a partir da unidade. O resto 10 é considerado 0 (algumas instituições, como o Banco do Brasil, tratam o 10, em seus números de contas, como "X").
+
+O DV módulo 10 corresponde ao número que faltar para inteirar múltiplo de 10, em relação ao somatório da multiplicação de cada algarismo da base respectivamente por 2, 1, 2, 1, 2, 1 e 2, a partir da unidade, sendo que em cada multiplicação valores superiores a 9 deverão sofrer a operação "noves fora".
+
+Veja, abaixo, exemplo de cálculo de DV módulo 11 (o mais usado pelos bancos) e de DV módulo 10 para o CNPJ nº 18781203/0001:
+
+1  8  7  8  1  2  0  3  0  0  0  1 = 2              
+x  x  x  x  x  x  x  x  x  x  x  x              
+6  7  8  9  2  3  4  5  6  7  8  9           
+----------------------------------                 
+6+56+56+72+ 2+ 6+ 0+15+ 0+ 0+ 0+ 9 = 222÷11=20, com resto 2
+
+1  8  7  8  1  2  0  3  0  0  0  1  2 = 8
+x  x  x  x  x  x  x  x  x  x  x  x  x
+5  6  7  8  9  2  3  4  5  6  7  8  9
+-------------------------------------
+5+48+49+64+ 9+ 4+ 0+12+ 0+ 0+ 0+ 8+18 = 217÷11=19, com resto 8
+
+Portanto, CNPJ+DV = 18781203/0001-28
+
+------------------------------------------------------
+
+Conferência do oitavo dígito:
+
+1  8  7  8  1  2  0  =  3
+x  x  x  x  x  x  x
+2  1  2  1  2  1  2
+-------------------
+2+ 8+ 5*+8+ 2+ 2 +0 = 27, para 30 = 3 (*noves fora)
+ 
