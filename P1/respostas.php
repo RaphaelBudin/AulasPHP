@@ -1,3 +1,13 @@
+<!-- 
+
+RAPHAEL AMARAL BUDIN
+
+Link para webhost:
+https://raphaelbudin.000webhostapp.com/P1/index.php
+
+!-->
+
+
 <?php
     // 0,4 ponto
     function higieniza_string($string){
@@ -34,12 +44,13 @@
         // se o valor não for válido, deve ser retornado um string com o texto 
         // documento inválido após o número do documento informado
         global $cpfcnpj;
-        $resultado = higieniza_string($cpfcnpj);
+        $cpfcnpj = higieniza_string($cpfcnpj);
+        $resultado = false;
         $resultado =  valida_documento($resultado);
         if ($resultado = true){
             return higieniza_string($cpfcnpj);
         }
-        return "Documento inválido após o número do documento informado\n";
+        return "<br>Documento inválido<br>\n";
     }
 
     // 0,2 ponto
@@ -48,7 +59,7 @@
         // se a pessoa for jurídica, retornar o retorno da função que valida CNPJ
         global $cpfcnpj;
         $tipo = retorna_tipo();
-        if (($tipo == "Física")){
+        if (($tipo == 'Física')){
             return valida_cpf();
         }
         else{
@@ -189,7 +200,7 @@
         // deverá retornar a quantidade de palavras postadas no campo referente à reclamação
         // a partir do formulário
         global $mensagem;
-        return strlen($mensagem);
+        return str_word_count($mensagem);
     }
     
     // 0,5 ponto
