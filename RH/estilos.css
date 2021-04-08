@@ -1,0 +1,48 @@
+body {
+    margin: 1% 10% 2% 10%;
+    background-image: url('imagens/fundo6.png');
+    background-color: #cccccc;
+    background-size: cover;
+}
+h1 {
+    color: #700000;
+    font-family: verdana;
+    font-size: 300%;
+}
+h2 {
+    color: #700000;
+    font-family: verdana;
+    font-size: 180%;
+}
+h3 {
+    color: #700000;
+    font-family: verdana;
+    font-size: 60%;
+}
+p {
+    color: black;
+    font-family: verdana;
+    font-size: 116%;
+}
+link {
+    display: none;
+    text-decoration: none;
+}
+
+tr{
+    border-color: 5px solid black;
+}
+
+td{
+    border-color: 5px solid black;
+    font-family: Verdana;
+    font-size: 150%;
+    text-align: center;
+}
+
+.tituloColuna{
+    color: blanchedalmond;
+    background-color: #700000;
+    border-color: black;
+}
+
