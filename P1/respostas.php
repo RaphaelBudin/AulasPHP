@@ -45,12 +45,10 @@ https://raphaelbudin.000webhostapp.com/P1/index.php
         // documento inválido após o número do documento informado
         global $cpfcnpj;
         $cpfcnpj = higieniza_string($cpfcnpj);
-        $resultado = false;
-        $resultado =  valida_documento($resultado);
-        if ($resultado = true){
+        if (valida_documento($cpfcnpj)){
             return higieniza_string($cpfcnpj);
         }
-        return "<br>Documento inválido<br>\n";
+        return "Documento inválido\n";
     }
 
     // 0,2 ponto
